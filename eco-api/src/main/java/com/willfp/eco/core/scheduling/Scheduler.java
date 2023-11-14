@@ -15,7 +15,7 @@ public interface Scheduler {
      *
      * @param runnable   The lambda to run.
      * @param ticksLater The amount of ticks to wait before execution.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask runLater(@NotNull Runnable runnable,
                            long ticksLater);
@@ -27,7 +27,7 @@ public interface Scheduler {
      *
      * @param runnable   The lambda to run.
      * @param ticksLater The amount of ticks to wait before execution.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     default ScheduledTask runLater(long ticksLater,
                                 @NotNull Runnable runnable) {
@@ -39,7 +39,8 @@ public interface Scheduler {
      *
      * @param runnable   The lambda to run.
      * @param ticksLater The amount of ticks to wait before execution.
-     * @return The created {@link BukkitTask}.
+     * @param location location
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask runLater(@NotNull Runnable runnable,
                            long ticksLater, Location location);
@@ -51,7 +52,8 @@ public interface Scheduler {
      *
      * @param runnable   The lambda to run.
      * @param ticksLater The amount of ticks to wait before execution.
-     * @return The created {@link BukkitTask}.
+     * @param location location
+     * @return The created {@link ScheduledTask}.
      */
     default ScheduledTask runLater(long ticksLater,
                                    @NotNull Runnable runnable, Location location) {
@@ -64,7 +66,7 @@ public interface Scheduler {
      * @param runnable The lambda to run.
      * @param delay    The amount of ticks to wait before the first execution.
      * @param repeat   The amount of ticks to wait between executions.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask runTimer(@NotNull Runnable runnable,
                         long delay,
@@ -78,7 +80,7 @@ public interface Scheduler {
      * @param runnable The lambda to run.
      * @param delay    The amount of ticks to wait before the first execution.
      * @param repeat   The amount of ticks to wait between executions.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     default ScheduledTask runTimer(long delay,
                                 long repeat,
@@ -92,7 +94,8 @@ public interface Scheduler {
      * @param runnable The lambda to run.
      * @param delay    The amount of ticks to wait before the first execution.
      * @param repeat   The amount of ticks to wait between executions.
-     * @return The created {@link BukkitTask}.
+     * @param location location
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask runTimer(@NotNull Runnable runnable,
                            long delay,
@@ -106,7 +109,8 @@ public interface Scheduler {
      * @param runnable The lambda to run.
      * @param delay    The amount of ticks to wait before the first execution.
      * @param repeat   The amount of ticks to wait between executions.
-     * @return The created {@link BukkitTask}.
+     * @param location location
+     * @return The created {@link ScheduledTask}.
      */
     default ScheduledTask runTimer(long delay,
                                    long repeat,
@@ -120,7 +124,7 @@ public interface Scheduler {
      * @param runnable The lambda to run.
      * @param delay    The amount of ticks to wait before the first execution.
      * @param repeat   The amount of ticks to wait between executions.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask runAsyncTimer(@NotNull Runnable runnable,
                              long delay,
@@ -134,7 +138,7 @@ public interface Scheduler {
      * @param runnable The lambda to run.
      * @param delay    The amount of ticks to wait before the first execution.
      * @param repeat   The amount of ticks to wait between executions.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     default ScheduledTask runAsyncTimer(long delay,
                                      long repeat,
@@ -146,15 +150,14 @@ public interface Scheduler {
      * Run the task now.
      *
      * @param runnable The lambda to run.
-     * @return The created {@link BukkitTask}.
      */
     void runNow(@NotNull Runnable runnable);
 
     /**
      * Run the task now.
      *
+     * @param location location
      * @param runnable The lambda to run.
-     * @return The created {@link BukkitTask}.
      */
     void runNow(@NotNull Runnable runnable, Location location);
 
@@ -162,15 +165,16 @@ public interface Scheduler {
      * Run the task in next tick.
      *
      * @param runnable The lambda to run.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask run(@NotNull Runnable runnable);
 
     /**
      * Run the task in next tick.
      *
+     * @param location location
      * @param runnable The lambda to run.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask run(@NotNull Runnable runnable, Location location);
 
@@ -178,7 +182,7 @@ public interface Scheduler {
      * Run the task asynchronously.
      *
      * @param runnable The lambda to run.
-     * @return The created {@link BukkitTask}.
+     * @return The created {@link ScheduledTask}.
      */
     ScheduledTask runAsync(@NotNull Runnable runnable);
 

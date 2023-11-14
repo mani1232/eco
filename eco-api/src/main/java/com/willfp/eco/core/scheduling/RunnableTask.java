@@ -15,13 +15,14 @@ public interface RunnableTask extends Runnable {
     /**
      * Run the task by location.
      *
-     * @return The created {@link ScheduledTask}.
+     * @param location location
      */
     void runNow(Location location);
 
     /**
      * Run the task on the next tick by location.
      *
+     * @param location location
      * @return The created {@link ScheduledTask}.
      */
     @NotNull ScheduledTask runTask(Location location);
@@ -42,6 +43,7 @@ public interface RunnableTask extends Runnable {
     /**
      * Run the task after a specified number of ticks by location.
      *
+     * @param location location
      * @param delay The number of ticks to wait.
      * @return The created {@link ScheduledTask}
      */
@@ -68,6 +70,7 @@ public interface RunnableTask extends Runnable {
      *
      * @param delay  The delay before the task is first ran (in ticks).
      * @param period The ticks elapsed before the task is ran again.
+     * @param location location
      * @return The created {@link ScheduledTask}
      */
     @NotNull ScheduledTask runTaskTimer(long delay, long period, Location location);
