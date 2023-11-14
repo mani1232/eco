@@ -3,7 +3,7 @@ version = rootProject.version
 
 dependencies {
     // Libraries
-    implementation("org.reflections:reflections:0.10.2")
+    implementation("org.reflections:reflections:0.9.12")
     implementation("org.objenesis:objenesis:3.3")
 
     compileOnly("io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT")

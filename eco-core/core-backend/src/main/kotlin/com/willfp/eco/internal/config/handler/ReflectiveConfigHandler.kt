@@ -3,14 +3,14 @@ package com.willfp.eco.internal.config.handler
 import com.willfp.eco.core.EcoPlugin
 import com.willfp.eco.core.config.updating.ConfigUpdater
 import org.reflections.Reflections
-import org.reflections.scanners.Scanners
+import org.reflections.scanners.MethodAnnotationsScanner
 
 class ReflectiveConfigHandler(
     private val plugin: EcoPlugin
 ) : SimpleConfigHandler() {
     private val reflections: Reflections = Reflections(
         this.plugin::class.java.classLoader,
-        Scanners.MethodsAnnotated
+        MethodAnnotationsScanner()
     )
 
     override fun callUpdate() {
