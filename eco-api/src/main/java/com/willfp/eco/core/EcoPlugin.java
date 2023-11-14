@@ -494,6 +494,7 @@ public abstract class EcoPlugin extends JavaPlugin implements PluginLike, Regist
 
         this.getLogger().info("Cleaning up...");
         Eco.get().clean(this);
+        this.getLogger().info("Cleaned!");
     }
 
     /**

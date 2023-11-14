@@ -235,18 +235,18 @@ class EcoImpl : EcoSpigotPlugin(), Eco {
         MergedStateMenu(base, additional)
 
     override fun clean(plugin: EcoPlugin) {
+        for (customItem in Items.getCustomItems()) {
+            if (customItem.key.namespace.equals(plugin.name.lowercase(), ignoreCase = true)) {
+                Items.removeCustomItem(customItem.key)
+            }
+        }
+
         if (plugin.proxyPackage.isNotEmpty()) {
             val factory = plugin.proxyFactory as EcoProxyFactory
             factory.clean()
         }
 
         loadedEcoPlugins.remove(plugin.name.lowercase())
-
-        for (customItem in Items.getCustomItems()) {
-            if (customItem.key.namespace.equals(plugin.name.lowercase(), ignoreCase = true)) {
-                Items.removeCustomItem(customItem.key)
-            }
-        }
 
         val classLoader = plugin::class.java.classLoader
 
