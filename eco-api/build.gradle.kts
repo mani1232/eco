@@ -3,7 +3,7 @@ dependencies {
     compileOnly("net.kyori:adventure-platform-bukkit:4.3.1")
 
     // Other
-    compileOnly("io.papermc.paper:paper-api:1.20-R0.1-SNAPSHOT")
+    compileOnly("io.papermc.paper:paper-api:1.20.2-R0.1-SNAPSHOT")
     compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
     compileOnly("com.google.code.gson:gson:2.10.1")
 }

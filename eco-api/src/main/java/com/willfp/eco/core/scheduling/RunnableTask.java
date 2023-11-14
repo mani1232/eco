@@ -1,6 +1,7 @@
 package com.willfp.eco.core.scheduling;
 
-import org.bukkit.scheduler.BukkitTask;
+import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
+import org.bukkit.Location;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -9,54 +10,83 @@ import org.jetbrains.annotations.NotNull;
 public interface RunnableTask extends Runnable {
     /**
      * Run the task.
-     *
-     * @return The created {@link BukkitTask}.
      */
-    @NotNull BukkitTask runTask();
+    void runNow();
+    /**
+     * Run the task by location.
+     *
+     * @return The created {@link ScheduledTask}.
+     */
+    void runNow(Location location);
+
+    /**
+     * Run the task on the next tick by location.
+     *
+     * @return The created {@link ScheduledTask}.
+     */
+    @NotNull ScheduledTask runTask(Location location);
+    /**
+     * Run the task on the next tick.
+     *
+     * @return The created {@link ScheduledTask}.
+     */
+    @NotNull ScheduledTask runTask();
 
     /**
      * Run the task asynchronously.
      *
-     * @return The created {@link BukkitTask}
+     * @return The created {@link ScheduledTask}
      */
-    @NotNull BukkitTask runTaskAsynchronously();
+    @NotNull ScheduledTask runTaskAsynchronously();
+
+    /**
+     * Run the task after a specified number of ticks by location.
+     *
+     * @param delay The number of ticks to wait.
+     * @return The created {@link ScheduledTask}
+     */
+    @NotNull ScheduledTask runTaskLater(long delay, Location location);
 
     /**
      * Run the task after a specified number of ticks.
      *
      * @param delay The number of ticks to wait.
-     * @return The created {@link BukkitTask}
+     * @return The created {@link ScheduledTask}
      */
-    @NotNull BukkitTask runTaskLater(long delay);
+    @NotNull ScheduledTask runTaskLater(long delay);
 
     /**
      * Run the task asynchronously after a specified number of ticks.
      *
      * @param delay The number of ticks to wait.
-     * @return The created {@link BukkitTask}
+     * @return The created {@link ScheduledTask}
      */
-    @NotNull BukkitTask runTaskLaterAsynchronously(long delay);
+    @NotNull ScheduledTask runTaskLaterAsynchronously(long delay);
 
     /**
      * Run the task repeatedly on a timer.
      *
      * @param delay  The delay before the task is first ran (in ticks).
      * @param period The ticks elapsed before the task is ran again.
-     * @return The created {@link BukkitTask}
+     * @return The created {@link ScheduledTask}
      */
-    @NotNull BukkitTask runTaskTimer(long delay, long period);
+    @NotNull ScheduledTask runTaskTimer(long delay, long period, Location location);
+
+    /**
+     * Run the task repeatedly on a timer.
+     *
+     * @param delay  The delay before the task is first ran (in ticks).
+     * @param period The ticks elapsed before the task is ran again.
+     * @return The created {@link ScheduledTask}
+     */
+    @NotNull ScheduledTask runTaskTimer(long delay, long period);
 
     /**
      * Run the task repeatedly on a timer asynchronously.
      *
      * @param delay  The delay before the task is first ran (in ticks).
      * @param period The ticks elapsed before the task is ran again.
-     * @return The created {@link BukkitTask}
+     * @return The created {@link ScheduledTask}
      */
-    @NotNull BukkitTask runTaskTimerAsynchronously(long delay, long period);
-
-    /**
-     * Cancel the task.
-     */
-    void cancel();
+    @NotNull ScheduledTask runTaskTimerAsynchronously(long delay, long period);
 }
