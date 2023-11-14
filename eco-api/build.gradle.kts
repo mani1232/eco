@@ -1,11 +1,11 @@
 dependencies {
     // Adventure
-    compileOnly("net.kyori:adventure-platform-bukkit:4.1.0")
+    compileOnly("net.kyori:adventure-platform-bukkit:4.3.1")
 
     // Other
-    compileOnly("org.spigotmc:spigot-api:1.17.1-R0.1-SNAPSHOT")
-    compileOnly("com.comphenix.protocol:ProtocolLib:4.6.1-SNAPSHOT")
-    compileOnly("com.google.code.gson:gson:2.8.8")
+    compileOnly("io.papermc.paper:paper-api:1.20-R0.1-SNAPSHOT")
+    compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
+    compileOnly("com.google.code.gson:gson:2.10.1")
 }
 
 group = "com.willfp"

@@ -23,7 +23,6 @@ object InteractGoalFactory : EntityGoalFactory<EntityGoalInteract> {
     override fun isGoalOfType(goal: Goal) = goal is InteractGoal
 }
 
-@Suppress("NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 private class EnhancedInteractGoal(
     mob: PathfinderMob,
     private val target: TestableEntity,
@@ -43,10 +42,10 @@ private class EnhancedInteractGoal(
                 lookAt = mob.target
             }
             val lookAt = if (lookAtType == Player::class.java) {
-                mob.level.getNearestPlayer(lookAtContext, mob, mob.x, mob.eyeY, mob.z)
+                mob.level().getNearestPlayer(lookAtContext, mob, mob.x, mob.eyeY, mob.z)
             } else {
-                mob.level.getNearestEntity(
-                    mob.level.getEntitiesOfClass(
+                mob.level().getNearestEntity(
+                    mob.level().getEntitiesOfClass(
                         lookAtType, mob.boundingBox.inflate(
                             lookDistance.toDouble(), 3.0, lookDistance.toDouble()
                         )

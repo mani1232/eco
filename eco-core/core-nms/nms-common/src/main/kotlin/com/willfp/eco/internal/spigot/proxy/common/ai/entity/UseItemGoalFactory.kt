@@ -15,7 +15,7 @@ object UseItemGoalFactory : EntityGoalFactory<EntityGoalUseItem> {
         return UseItemGoal(
             entity,
             apiGoal.item.asNMSStack(),
-            SoundEvent(apiGoal.sound.key.toResourceLocation()),
+            SoundEvent.createVariableRangeEvent(apiGoal.sound.key.toResourceLocation()),
         ) {
             apiGoal.condition.test(it.toBukkitEntity())
         }

@@ -1,6 +1,6 @@
 package com.willfp.eco.util;
 
-import org.bukkit.potion.PotionData;
+import org.bukkit.potion.PotionType;
 import org.jetbrains.annotations.NotNull;
 
 /**
@@ -13,9 +13,9 @@ public final class PotionUtils {
      * @param data The data.
      * @return The duration.
      */
-    public static int getDuration(@NotNull final PotionData data) {
-        if (data.isExtended()) {
-            return switch (data.getType()) {
+    public static int getDuration(@NotNull final PotionType data) {
+        if (data.isExtendable()) {
+            return switch (data) {
                 case INSTANT_DAMAGE, INSTANT_HEAL:
                     yield 0;
                 case POISON, REGEN:
@@ -29,8 +29,8 @@ public final class PotionUtils {
             };
         }
 
-        if (data.isUpgraded()) {
-            return switch (data.getType()) {
+        if (data.isUpgradeable()) {
+            return switch (data) {
                 case INSTANT_DAMAGE, INSTANT_HEAL:
                     yield 0;
                 case POISON, REGEN:
@@ -44,7 +44,7 @@ public final class PotionUtils {
             };
         }
 
-        return switch (data.getType()) {
+        return switch (data) {
             case INSTANT_DAMAGE, INSTANT_HEAL:
                 yield 0;
             case POISON, REGEN:

@@ -53,7 +53,7 @@ class EnhancedTemptGoal(
             --calmDown
             false
         } else {
-            player = mob.level.getNearestPlayer(targetingConditions, mob as LivingEntity)
+            player = mob.level().getNearestPlayer(targetingConditions, mob as LivingEntity)
             player != null
         }
     }

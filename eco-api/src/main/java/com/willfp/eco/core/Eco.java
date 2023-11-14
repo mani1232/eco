@@ -30,7 +30,7 @@ import com.willfp.eco.core.placeholder.context.PlaceholderContext;
 import com.willfp.eco.core.proxy.ProxyFactory;
 import com.willfp.eco.core.scheduling.Scheduler;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.bukkit.Location;
 import org.bukkit.NamespacedKey;
 import org.bukkit.configuration.ConfigurationSection;

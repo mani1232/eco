@@ -80,7 +80,6 @@ import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefCombatLogX
 import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefCombatLogXV11
 import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefCrashClaim
 import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefDeluxeCombat
-import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefFabledSkyBlock
 import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefFactionsUUID
 import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefGriefPrevention
 import com.willfp.eco.internal.spigot.integrations.antigrief.AntigriefIridiumSkyblock
@@ -308,7 +307,6 @@ abstract class EcoSpigotPlugin : EcoPlugin() {
                 }
             },
             IntegrationLoader("PvPManager") { AntigriefManager.register(AntigriefPvPManager()) },
-            IntegrationLoader("FabledSkyblock") { AntigriefManager.register(AntigriefFabledSkyBlock()) },
 
             // Anticheat
             IntegrationLoader("AAC5") { AnticheatManager.register(AnticheatAAC()) },

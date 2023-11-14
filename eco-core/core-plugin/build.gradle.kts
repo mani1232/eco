@@ -7,26 +7,26 @@ dependencies {
 
     // Libraries
     implementation("com.github.WillFP:Crunch:1.1.3")
-    implementation("mysql:mysql-connector-java:8.0.25")
-    implementation("org.jetbrains.exposed:exposed-core:0.37.3")
-    implementation("org.jetbrains.exposed:exposed-dao:0.37.3")
-    implementation("org.jetbrains.exposed:exposed-jdbc:0.37.3")
-    implementation("com.zaxxer:HikariCP:5.0.0")
-    implementation("net.kyori:adventure-platform-bukkit:4.1.0")
+    implementation("com.mysql:mysql-connector-j:8.2.0")
+    implementation("org.jetbrains.exposed:exposed-core:0.44.1")
+    implementation("org.jetbrains.exposed:exposed-dao:0.44.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.44.1")
+    implementation("com.zaxxer:HikariCP:5.1.0")
+    implementation("net.kyori:adventure-platform-bukkit:4.3.1")
     implementation("org.javassist:javassist:3.29.2-GA")
-    implementation("org.mongodb:mongodb-driver-sync:4.6.0")
-    implementation("org.litote.kmongo:kmongo-coroutine:4.6.0")
+    implementation("org.mongodb:mongodb-driver-sync:4.11.1")
+    implementation("org.litote.kmongo:kmongo-coroutine:4.11.0")
     implementation("com.moandjiezana.toml:toml4j:0.7.2") {
         exclude(group = "com.google.code.gson", module = "gson")
     }
 
     // Included in spigot jar
-    compileOnly("com.google.code.gson:gson:2.8.8")
-    compileOnly("io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT")
+    compileOnly("com.google.code.gson:gson:2.10.1")
+    compileOnly("io.papermc.paper:paper-api:1.20-R0.1-SNAPSHOT")
 
     // Plugin dependencies
-    compileOnly("com.comphenix.protocol:ProtocolLib:5.0.0-SNAPSHOT")
-    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.7-SNAPSHOT")
+    compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
+    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.9")
     compileOnly("com.github.TechFortress:GriefPrevention:16.17.1")
     compileOnly("com.github.TownyAdvanced:Towny:0.97.2.6") {
         exclude(group = "com.zaxxer", module = "HikariCP")
@@ -36,7 +36,7 @@ dependencies {
     compileOnly("fr.neatmonster:nocheatplus:3.16.1-SNAPSHOT")
     compileOnly("com.github.jiangdashao:matrix-api-repo:317d4635fd")
     compileOnly("com.gmail.nossr50.mcMMO:mcMMO:2.1.202")
-    compileOnly("me.clip:placeholderapi:2.10.10")
+    compileOnly("me.clip:placeholderapi:2.11.5")
     compileOnly("com.github.oraxen:oraxen:1.155.0")
     compileOnly("com.github.brcdev-minecraft:shopgui-api:3.0.0")
     compileOnly("com.github.LoneDev6:API-ItemsAdder:2.4.7")

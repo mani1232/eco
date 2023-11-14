@@ -1,7 +1,7 @@
 package com.willfp.eco.core.recipe.parts;
 
 import com.willfp.eco.core.items.TestableItem;
-import org.apache.commons.lang.Validate;
+import org.apache.commons.lang3.Validate;
 import org.bukkit.inventory.ItemStack;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -50,11 +50,12 @@ public class GroupedTestableItems implements TestableItem {
 
     @Override
     public ItemStack getItem() {
-        for (TestableItem child : children) {
-            return child.getItem();
+        var child = children.stream().findFirst();
+        if (child.isPresent()) {
+            return child.get().getItem();
+        } else {
+            throw new IllegalStateException("Empty group of children!");
         }
-
-        throw new IllegalStateException("Empty group of children!");
     }
 
     /**
