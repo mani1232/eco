@@ -92,4 +92,9 @@ public interface RunnableTask extends Runnable {
      * @return The created {@link ScheduledTask}
      */
     @NotNull ScheduledTask runTaskTimerAsynchronously(long delay, long period);
+
+    /**
+     * Cancel the task.
+     */
+    void cancel();
 }

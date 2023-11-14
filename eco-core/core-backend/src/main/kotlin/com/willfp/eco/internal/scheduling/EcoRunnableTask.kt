@@ -8,6 +8,8 @@ import java.util.concurrent.TimeUnit
 
 abstract class EcoRunnableTask(protected val plugin: JavaPlugin) : RunnableTask {
 
+    private lateinit var task: ScheduledTask
+
     @Synchronized
     override fun runNow() {
         plugin.server.globalRegionScheduler.execute(plugin, this)
@@ -20,64 +22,80 @@ abstract class EcoRunnableTask(protected val plugin: JavaPlugin) : RunnableTask 
 
     @Synchronized
     override fun runTask(location: Location): ScheduledTask {
-        return plugin.server.regionScheduler.run(plugin, location) {
+        task = plugin.server.regionScheduler.run(plugin, location) {
             this.run()
         }
+        return task
     }
 
     @Synchronized
     override fun runTask(): ScheduledTask {
-        return plugin.server.globalRegionScheduler.run(plugin) {
+        task = plugin.server.globalRegionScheduler.run(plugin) {
             this.run()
         }
+        return task
     }
 
     @Synchronized
     override fun runTaskAsynchronously(): ScheduledTask {
-        return plugin.server.asyncScheduler.runNow(plugin) {
+        task = plugin.server.asyncScheduler.runNow(plugin) {
             this.run()
         }
+        return task
     }
 
     @Synchronized
     override fun runTaskLater(delay: Long, location: Location): ScheduledTask {
-        return plugin.server.regionScheduler.runDelayed(plugin, location, {
+        task = plugin.server.regionScheduler.runDelayed(plugin, location, {
             this.run()
         }, delay)
+        return task
     }
 
     @Synchronized
     override fun runTaskLater(delay: Long): ScheduledTask {
-        return plugin.server.globalRegionScheduler.runDelayed(plugin, {
+        task = plugin.server.globalRegionScheduler.runDelayed(plugin, {
             this.run()
         }, delay)
+        return task
     }
 
     @Synchronized
     override fun runTaskLaterAsynchronously(delay: Long): ScheduledTask {
-        return plugin.server.asyncScheduler.runDelayed(plugin, {
+        task = plugin.server.asyncScheduler.runDelayed(plugin, {
             this.run()
         }, delay * 50, TimeUnit.MILLISECONDS)
+        return task
     }
 
     @Synchronized
     override fun runTaskTimer(delay: Long, period: Long, location: Location): ScheduledTask {
-        return plugin.server.regionScheduler.runDelayed(plugin, location, {
+        task = plugin.server.regionScheduler.runDelayed(plugin, location, {
             this.run()
         }, delay)
+        return task
     }
 
     @Synchronized
     override fun runTaskTimer(delay: Long, period: Long): ScheduledTask {
-        return plugin.server.globalRegionScheduler.runAtFixedRate(plugin, {
+        task = plugin.server.globalRegionScheduler.runAtFixedRate(plugin, {
             this.run()
         }, delay, period)
+        return task
     }
 
     @Synchronized
     override fun runTaskTimerAsynchronously(delay: Long, period: Long): ScheduledTask {
-        return plugin.server.asyncScheduler.runAtFixedRate(plugin, {
+        task = plugin.server.asyncScheduler.runAtFixedRate(plugin, {
             this.run()
         }, delay * 50, period * 50, TimeUnit.MILLISECONDS)
+        return task
+    }
+
+    @Synchronized
+    override fun cancel() {
+        if (task.isCancelled) {
+            task.cancel()
+        }
     }
 }
