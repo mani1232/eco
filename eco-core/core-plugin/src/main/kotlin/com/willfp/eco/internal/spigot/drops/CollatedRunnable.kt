@@ -8,18 +8,20 @@ class CollatedRunnable(plugin: EcoPlugin) {
     init {
         plugin.scheduler.runTimer({
             for ((key, value) in EcoFastCollatedDropQueue.COLLATED_MAP) {
-                val queue = EcoDropQueue(key)
-                    .setLocation(value.location)
-                    .addItems(value.drops)
-                    .addXP(value.xp)
+                plugin.scheduler.run({
+                    val queue = EcoDropQueue(key)
+                        .setLocation(value.location)
+                        .addItems(value.drops)
+                        .addXP(value.xp)
 
-                if (value.telekinetic) {
-                    queue.forceTelekinesis()
-                }
+                    if (value.telekinetic) {
+                        queue.forceTelekinesis()
+                    }
 
-                queue.push()
+                    queue.push()
 
-                EcoFastCollatedDropQueue.COLLATED_MAP.remove(key)
+                    EcoFastCollatedDropQueue.COLLATED_MAP.remove(key)
+                }, key.location)
             }
             EcoFastCollatedDropQueue.COLLATED_MAP.clear()
         }, 1, 1)
