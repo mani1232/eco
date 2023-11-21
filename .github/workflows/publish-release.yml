@@ -1,8 +1,9 @@
 name: Publish release
 
 on:
-  release:
-    types: [published]
+  pull_request:
+    branches:
+      - master
 
 jobs:
   publish-release:
