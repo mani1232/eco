@@ -80,6 +80,9 @@ allprojects {
 
         // Denizen
         maven("https://maven.citizensnpcs.co/repo")
+
+        // Oraxen
+        maven("https://repo.oraxen.com/releases")
     }
 
     dependencies {

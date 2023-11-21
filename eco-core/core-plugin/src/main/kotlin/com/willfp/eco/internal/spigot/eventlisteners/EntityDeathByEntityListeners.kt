@@ -42,23 +42,26 @@ class EntityDeathByEntityListeners(
         val drops = event.drops
         val xp = event.droppedExp
 
-        var builtEvent: EntityDeathByEntityBuilder? = null
+        this.plugin.scheduler.runNow({
 
-        for (builder in events) {
-            if (builder.victim == victim) {
-                builtEvent = builder
+            var builtEvent: EntityDeathByEntityBuilder? = null
+
+            for (builder in events) {
+                if (builder.victim == victim) {
+                    builtEvent = builder
+                }
             }
-        }
 
-        if (builtEvent == null) {
-            return
-        }
+            if (builtEvent == null) {
+                return@runNow
+            }
 
-        events.remove(builtEvent)
-        builtEvent.drops = drops
-        builtEvent.xp = xp
-        builtEvent.deathEvent = event
+            events.remove(builtEvent)
+            builtEvent.drops = drops
+            builtEvent.xp = xp
+            builtEvent.deathEvent = event
 
-        builtEvent.push()
+            builtEvent.push()
+        }, victim.location)
     }
 }
