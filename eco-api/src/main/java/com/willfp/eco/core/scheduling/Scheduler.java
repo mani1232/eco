@@ -3,7 +3,6 @@ package com.willfp.eco.core.scheduling;
 import com.willfp.eco.core.EcoPlugin;
 import io.papermc.paper.threadedregions.scheduler.ScheduledTask;
 import org.bukkit.Location;
-import org.bukkit.scheduler.BukkitTask;
 import org.jetbrains.annotations.NotNull;
 
 /**
