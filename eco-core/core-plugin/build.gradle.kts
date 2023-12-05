@@ -1,3 +1,5 @@
+import org.gradle.internal.impldep.org.junit.experimental.categories.Categories.CategoryFilter.exclude
+
 group = "com.willfp"
 version = rootProject.version
 
@@ -19,6 +21,7 @@ dependencies {
     implementation("com.moandjiezana.toml:toml4j:0.7.2") {
         exclude(group = "com.google.code.gson", module = "gson")
     }
+    implementation("com.willfp:ModelEngineBridge:1.2.0")
 
     // Included in spigot jar
     compileOnly("com.google.code.gson:gson:2.10.1")
@@ -28,7 +31,7 @@ dependencies {
     compileOnly("com.comphenix.protocol:ProtocolLib:5.1.0")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.9")
     compileOnly("com.github.TechFortress:GriefPrevention:16.17.1")
-    compileOnly("com.github.TownyAdvanced:Towny:0.97.2.6") {
+    compileOnly("com.github.TownyAdvanced:Towny:0.99.5.21") {
         exclude(group = "com.zaxxer", module = "HikariCP")
     }
     compileOnly("com.github.angeschossen:LandsAPI:6.26.18")
@@ -37,7 +40,7 @@ dependencies {
     compileOnly("com.github.jiangdashao:matrix-api-repo:317d4635fd")
     compileOnly("com.gmail.nossr50.mcMMO:mcMMO:2.1.202")
     compileOnly("me.clip:placeholderapi:2.11.5")
-    compileOnly("io.th0rgal:oraxen:1.164.0")
+    compileOnly("com.github.oraxen:oraxen:1.164.0")
     compileOnly("com.github.brcdev-minecraft:shopgui-api:3.0.0")
     compileOnly("com.github.LoneDev6:API-ItemsAdder:2.4.7")
     compileOnly("com.arcaniax:HeadDatabase-API:1.3.1")
@@ -50,7 +53,6 @@ dependencies {
     compileOnly("com.github.decentsoftware-eu:decentholograms:2.1.2")
     compileOnly("com.github.Gypopo:EconomyShopGUI-API:1.4.6")
     compileOnly("com.github.N0RSKA:ScytherAPI:55a")
-    compileOnly("com.ticxo.modelengine:api:R3.0.1")
     compileOnly("org.black_ixx:playerpoints:3.2.5")
     compileOnly("com.github.Ssomar-Developement:SCore:3.4.7")
     compileOnly("io.lumine:Mythic:5.3.5")
@@ -72,6 +74,7 @@ tasks {
         minimize {
             exclude(dependency("org.litote.kmongo:kmongo-coroutine:.*"))
             exclude(dependency("org.jetbrains.exposed:.*:.*"))
+            exclude(dependency("com.willfp:ModelEngineBridge:.*"))
         }
     }
 

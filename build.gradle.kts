@@ -4,7 +4,7 @@ buildscript {
     }
 
     dependencies {
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.20")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.9.21")
     }
 }
 
@@ -13,7 +13,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("maven-publish")
     id("java")
-    kotlin("jvm") version "1.9.20"
+    kotlin("jvm") version "1.9.21"
 }
 
 dependencies {
@@ -35,6 +35,7 @@ allprojects {
         mavenCentral()
         mavenLocal()
         maven("https://jitpack.io")
+        maven("https://repo.auxilor.io/repository/maven-public/")
 
         // CustomCrafting
         maven("https://maven.wolfyscript.com/repository/public/")
@@ -87,8 +88,8 @@ allprojects {
 
     dependencies {
         // Kotlin
-        implementation(kotlin("stdlib", version = "1.9.20"))
-        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
+        implementation(kotlin("stdlib", version = "1.9.21"))
+        implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.2")
 
         // Included in spigot jar, no need to move to implementation
         compileOnly("org.jetbrains:annotations:24.0.1")
@@ -173,6 +174,7 @@ allprojects {
             relocate("org.reactivestreams", "com.willfp.eco.libs.reactivestreams")
             relocate("reactor.", "com.willfp.eco.libs.reactor.") // Dot in name to be safe
             relocate("com.moandjiezana.toml", "com.willfp.eco.libs.toml")
+            relocate("com.willfp.modelenginebridge", "com.willfp.eco.libs.modelenginebridge")
 
             /*
             Kotlin and caffeine are not shaded so that they can be accessed directly by eco plugins.
