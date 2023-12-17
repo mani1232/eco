@@ -1,0 +1,62 @@
+name: eco
+version: ${projectVersion}
+main: com.willfp.eco.internal.spigot.EcoImpl
+api-version: 1.17
+authors: [ Auxilor ]
+website: willfp.com
+load: STARTUP
+
+folia-supported: true
+
+# Fixes some plugins breaking load order
+loadbefore:
+  - Spartan
+  - CustomCrafting
+softdepend:
+  - ProtocolLib
+  - WorldGuard
+  - GriefPrevention
+  - Towny
+  - FactionsUUID
+  - Lands
+  - Kingdoms
+  - NoCheatPlus
+  - AAC
+  - Matrix
+  - Vulcan
+  - PlaceholderAPI
+  - mcMMO
+  - CombatLogX
+  - ShopGUIPlus
+  - ItemsAdder
+  - Oraxen
+  - HeadDatabase
+  - Multiverse-Inventories
+  - Alice
+  - HolographicDisplays
+  - GHolo
+  - CMI
+  - Essentials
+  - Vault
+  - BentoBox
+  - DeluxeCombat
+  - IridiumSkyblock
+  - SuperiorSkyblock2
+  - FabledSkyBlock
+  - CrashClaim
+  - DecentHolograms
+  - MythicMobs
+  - ExecutableItems
+  - RPGHorses
+  - EconomyShopGUI
+  - EconomyShopGUI-Premium
+  - zShop
+  - DeluxeSellwands
+  - Scyther
+  - ModelEngine
+  - PvPManager
+  - DeluxeMenus
+  - UltraEconomy
+  - PlayerPoints
+  - Denizen
+  - RoyaleEconomy
