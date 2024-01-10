@@ -62,6 +62,6 @@ class EntityDeathByEntityListeners(
             builtEvent.deathEvent = event
 
             builtEvent.push()
-        }, victim.location)
+        }, event.entity.location)
     }
 }
