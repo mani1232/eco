@@ -85,6 +85,9 @@ allprojects {
 
         // Oraxen
         maven("https://repo.oraxen.com/releases")
+
+        // IridiumSkyblock
+        maven("https://nexus.iridiumdevelopment.net/repository/maven-releases/")
     }
 
     dependencies {
