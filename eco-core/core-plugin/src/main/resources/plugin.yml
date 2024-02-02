@@ -17,6 +17,8 @@ loadbefore:
   - EconomyShopGUI-Premium
   - CMI
   - DeluxeCombat
+  - SCore
+  - ExecutableItems
 softdepend:
   - ProtocolLib
   - WorldGuard
@@ -48,7 +50,6 @@ softdepend:
   - CrashClaim
   - DecentHolograms
   - MythicMobs
-  - ExecutableItems
   - RPGHorses
   - zShop
   - DeluxeSellwands
