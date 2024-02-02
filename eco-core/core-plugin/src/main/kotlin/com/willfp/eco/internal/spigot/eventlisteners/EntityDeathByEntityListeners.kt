@@ -38,11 +38,10 @@ class EntityDeathByEntityListeners(
 
     @EventHandler(priority = EventPriority.HIGH)
     fun onEntityDeath(event: EntityDeathEvent) {
-        val victim = event.entity
-        val drops = event.drops
-        val xp = event.droppedExp
-
         this.plugin.scheduler.runNow({
+            val victim = event.entity
+            val drops = event.drops
+            val xp = event.droppedExp
 
             var builtEvent: EntityDeathByEntityBuilder? = null
 
