@@ -88,6 +88,9 @@ allprojects {
 
         // IridiumSkyblock
         maven("https://nexus.iridiumdevelopment.net/repository/maven-releases/")
+
+        // HuskPlugins
+        maven("https://repo.william278.net/releases")
     }
 
     dependencies {
